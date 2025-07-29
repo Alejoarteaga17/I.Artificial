@@ -8,6 +8,8 @@ En este repositorio subiremos el contenido de los informes desarrollados durante
 - Camila Vélez
 - Alejandro Arteaga
 
--[link]() entrega 1
--[link]() entega 2
--[link]() entrega 3
+-[Link]() informe 1
+
+-[Link]() informe 2
+
+-[Link]() informe 3
