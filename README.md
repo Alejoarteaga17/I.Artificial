@@ -1,5 +1,6 @@
-# Informes Teoricos 
-### Inteligencia Artificial clase **1013**
+# Informes Teoricos Inteligencia Artificial 
+
+Clase **1013**
 
 En este repositorio subiremos el contenido de los informes desarrollados durante el semestre 2025-2
 
