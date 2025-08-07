@@ -84,5 +84,5 @@ maze = [
 
 # Ejecutar
 path, actions = find_exit(maze)
-print("Path to exit:", path)
-print("Actions taken:", actions)
+print("\nPath to exit:", path)
+print("Actions taken:", actions, end="")

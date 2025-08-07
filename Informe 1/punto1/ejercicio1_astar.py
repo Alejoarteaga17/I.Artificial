@@ -138,6 +138,6 @@ if solution:
         path.append(solution.state)
         solution = solution.parent
     path.reverse()
-    print("Solution path:", path)
+    print("\nSolution path:", path)
 else:
-    print("No solution found")
+    print("No solution found", end="")
