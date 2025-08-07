@@ -42,15 +42,15 @@ Se construyó una representación del mapa de metro como un diccionario donde la
 
 ### IDS
 - Ruta: A → C → F → J
-- Tiempo de ejecución: Ligeramente mayor
+- Tiempo de ejecución: Rapido
 - Memoria utilizada: Menor que BFS
 
 ## Comparación
 
 | Algoritmo | Tiempo (s) | Memoria (KB) | Ruta Encontrada |
 |-----------|------------|--------------|------------------|
-| BFS       | Muy bajo   | Alta         | ['A', 'C', 'F', 'J'] |
-| IDS       | Medio      | Baja         | ['A', 'C', 'F', 'J'] |
+| BFS       | Bajo       | Alta         | ['A', 'C', 'F', 'J'] |
+| IDS       | Medio-Bajo | Baja         | ['A', 'C', 'F', 'J'] |
 
 ## Conclusión
 
