@@ -11,6 +11,6 @@ En este repositorio subiremos el contenido de los informes desarrollados durante
 
 -[Link Informe 1.](https://github.com/Alejoarteaga17/I.Artificial/tree/main/Informe%201)
 
--[Link Informe 2]() -> pendiente
+-[Link Informe 2](https://github.com/Alejoarteaga17/I.Artificial/tree/main/Informe%202) 
 
 -[Link Informe 3]() -> pendiente
