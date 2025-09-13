@@ -60,10 +60,10 @@ El modelo fue entrenado con el conjunto de entrenamiento y luego evaluado con el
 **b. Visualizaciones**
 
 1. **Importancia de características**  
-   ![Gráfico de importancia de características](resultados/feature_importances.png)
+  
 
 2. **Real vs Predicho**  
-   ![Scatter real vs predicho](resultados/real_vs_predicho.png)
+ 
 
 (Estas gráficas se muestran en pantalla al ejecutar el script y también pueden guardarse como `.png`).
 
@@ -104,4 +104,5 @@ En este caso, **Random Forest ofrece un balance ideal entre rendimiento y facili
 >   - Valores reales vs predichos  
 
 Estos archivos y gráficas **no están subidos en el repositorio**, ya que se crean al momento de ejecutar el script.`
+
 
