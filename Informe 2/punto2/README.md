@@ -1,9 +1,3 @@
-# Actividad 2 — Random Forest
-
-**Autor:** *(tu nombre)*  
-**Fecha:** *(fecha de entrega)*
-
----
 
 ## 1. Descripción del dataset
 
@@ -49,7 +43,6 @@ Se construyó un `Pipeline` con tres etapas:
 
 El modelo fue entrenado con el conjunto de entrenamiento y luego evaluado con el conjunto de prueba.
 
-> ⚠️ Nota: El enunciado pedía tres modelos, pero en este trabajo solo se implementó **Random Forest**, siguiendo las indicaciones de la actividad.
 
 ---
 
@@ -78,7 +71,6 @@ El modelo fue entrenado con el conjunto de entrenamiento y luego evaluado con el
 
 ## 5. Análisis comparativo
 
-Aunque no se entrenaron los otros dos modelos, se describe brevemente un posible análisis:
 
 | Modelo           | Ventajas                                   | Desventajas                              | Posibles usos                     |
 |------------------|---------------------------------------------|--------------------------------------------|-------------------------------------|
@@ -102,12 +94,14 @@ En este caso, **Random Forest ofrece un balance ideal entre rendimiento y facili
 
 ---
 
-## 📂 Archivos entregados
+##  Nota importante
 
-- `actividad2_random_forest.py` — Script completo con el pipeline y entrenamiento
-- `README.md` — Este informe
-- Carpeta `resultados/` con:
-  - `random_forest_pipeline.pkl`
-  - `rf_metrics.csv`
-  - `rf_results.csv`
-  - `rf_feature_importances.csv`
+> Al ejecutar el archivo `actividad2_random_forest.py` en local:  
+> - Se generan automáticamente los resultados de métricas (`.csv`)  
+> - Se guarda el modelo entrenado (`.pkl`)  
+> - Y se muestran en pantalla las gráficas de:
+>   - Importancia de características  
+>   - Valores reales vs predichos  
+
+Estos archivos y gráficas **no están subidos en el repositorio**, ya que se crean al momento de ejecutar el script.`
+
