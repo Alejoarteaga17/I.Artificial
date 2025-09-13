@@ -1,108 +1,70 @@
+# ============================================================
+# 6) Generar README.md con resultados
+# ============================================================
+readme_content = f"""
+# 📄 Informe - Modelos de Aprendizaje Supervisado sobre California Housing
 
 ## 1. Descripción del dataset
+- **Fuente:** [California Housing Dataset](https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset)
+- **Número de registros:** {len(df)} observaciones
+- **Número de variables (features):** {X.shape[1]}
+- **Variable objetivo (target):** `MedHouseVal`
+- **Tipo de problema:** **Regresión supervisada**
 
-- **Fuente:** Dataset `fetch_california_housing.csv` proporcionado por el curso.
-- **Número de registros:** 20 640
-- **Número de variables:** 9 columnas
-  - **Variables predictoras:**  
-    `MedInc` (ingreso medio), `HouseAge` (edad promedio de casas),  
-    `AveRooms` (habitaciones promedio), `AveBedrms` (dormitorios promedio),  
-    `Population`, `AveOccup` (ocupantes promedio), `Latitude`, `Longitude`.
-  - **Variable objetivo:**  
-    `MedHouseVal` — valor medio de las viviendas.
-- **Tipo de problema:** Regresión (predicción de un valor numérico continuo).
+| Variable         | Descripción |
+|------------------|-------------|
+| MedInc           | Ingreso medio en la zona |
+| HouseAge         | Edad media de las casas |
+| AveRooms         | Número medio de habitaciones |
+| AveBedrms        | Número medio de dormitorios |
+| Population       | Población total |
+| AveOccup         | Ocupación media por vivienda |
+| Latitude         | Latitud geográfica |
+| Longitude        | Longitud geográfica |
+| **MedHouseVal**  | **Valor medio de las casas (target)** |
 
 ---
 
 ## 2. Preprocesamiento realizado
-
-**a. Limpieza de datos faltantes**  
-- Se aplicó `SimpleImputer(strategy='median')` para rellenar valores nulos numéricos.
-- No se detectaron valores faltantes en el dataset.
-
-**b. Codificación de variables categóricas**  
-- No existen variables categóricas en este dataset, por lo que no se aplicó codificación.
-
-**c. Escalado / normalización**  
-- Se aplicó `StandardScaler` dentro del `Pipeline` para escalar las variables numéricas.
-- Aunque Random Forest no lo requiere, se incluyó por buenas prácticas.
-
-**d. División en train/test**  
-- Se utilizó `train_test_split` con 80% para entrenamiento y 20% para prueba.
-- `random_state=42` para asegurar reproducibilidad.
+1. **Limpieza de datos faltantes:** No se encontraron valores nulos.
+2. **Codificación de variables categóricas:** Todas las variables son numéricas.
+3. **Escalado/normalización:** Se aplicó `StandardScaler`.
+4. **División en train/test:** 80% entrenamiento, 20% prueba (`random_state=42`).
 
 ---
 
-## 3. Entrenamiento del modelo (Random Forest con Pipeline)
-
-Se construyó un `Pipeline` con tres etapas:
-
-1. `SimpleImputer(strategy='median')`
-2. `StandardScaler()`
-3. `RandomForestRegressor(n_estimators=100, max_depth=15, random_state=42, n_jobs=-1)`
-
-El modelo fue entrenado con el conjunto de entrenamiento y luego evaluado con el conjunto de prueba.
-
+## 3. Modelos entrenados
+- **Random Forest Regressor** (`n_estimators=100`)
+- **Gradient Boosting Regressor** (`n_estimators=200`, `learning_rate=0.1`, `max_depth=3`)
+- **Red Neuronal (Keras - TensorFlow)**:
+  - Capas densas: 128 → 64 → 32 → 1
+  - Activación: ReLU en capas ocultas, salida lineal
+  - Optimizador: Adam
+  - Pérdida: MSE
+  - Épocas: hasta 200 con `EarlyStopping`
 
 ---
 
 ## 4. Evaluación de resultados
 
-**a. Métricas de rendimiento en test**
-
-| Métrica | Valor aproximado |
-|---------|---------|
-| MAE     | 0.33    |
-| MSE     | 0.26    |
-| RMSE    | 0.51    |
-| R²      | 0.80    |
-
-**b. Visualizaciones**
-
-1. **Importancia de características**  
-  
-
-2. **Real vs Predicho**  
- 
-
-(Estas gráficas se muestran en pantalla al ejecutar el script y también pueden guardarse como `.png`).
+| Modelo           | MAE   | MSE   | RMSE  | R²   |
+|------------------|-------|-------|-------|------|
+| Random Forest    | {mae_rf:.4f} | {mse_rf:.4f} | {rmse_rf:.4f} | {r2_rf:.4f} |
+| Gradient Boosting| {mae_gbr:.4f} | {mse_gbr:.4f} | {rmse_gbr:.4f} | {r2_gbr:.4f} |
+| Red Neuronal     | {mae:.4f} | {mse:.4f} | {rmse:.4f} | {r2:.4f} |
 
 ---
 
 ## 5. Análisis comparativo
-
-
-| Modelo           | Ventajas                                   | Desventajas                              | Posibles usos                     |
-|------------------|---------------------------------------------|--------------------------------------------|-------------------------------------|
-| Árbol de decisión simple | Fácil de interpretar | Tiende a sobreajustar | Problemas simples, interpretables |
-| Random Forest    | Robusto, buen desempeño general, reduce sobreajuste | Más lento y menos interpretable | Datasets grandes y variados |
-| Red Neuronal     | Alta capacidad predictiva en datos complejos | Requiere mucho ajuste y datos grandes | Datos no lineales, visión, audio |
-
-En este caso, **Random Forest ofrece un balance ideal entre rendimiento y facilidad de uso** para este dataset.
+- **Random Forest:** Mejor desempeño global, robusto, rápido de entrenar.
+- **Gradient Boosting:** Similar al RF, aunque con mayor tiempo de entrenamiento.
+- **Red Neuronal:** Buen resultado pero menor R², requiere más ajuste y datos.
 
 ---
 
 ## 6. Conclusiones
-
-- Se logró predecir el valor medio de viviendas en California con un desempeño bueno (R² ≈ 0.80).
-- La variable más influyente fue el ingreso medio (`MedInc`), lo que es coherente con el dominio del problema.
-- Random Forest demostró ser robusto, preciso y fácil de implementar mediante un `Pipeline`.
-- Como mejoras futuras se podría:
-  - Ajustar hiperparámetros con `GridSearchCV` o `RandomizedSearchCV`
-  - Probar modelos de boosting como `XGBoost` o `LightGBM`
-  - Incluir validación cruzada y comparar con otros algoritmos.
-
----
-
-##  Nota importante
-
-> Al ejecutar el archivo `actividad2_random_forest.py` en local:  
-> - Se generan automáticamente los resultados de métricas (`.csv`)  
-> - Se guarda el modelo entrenado (`.pkl`)  
-> - Y se muestran en pantalla las gráficas de:
->   - Importancia de características  
->   - Valores reales vs predichos  
-
-Estos archivos y gráficas **no están subidos en el repositorio**, ya que se crean al momento de ejecutar el script.`
-
+- El **Random Forest** fue el modelo más adecuado para este dataset.
+- Los métodos ensemble (RF y GB) superaron a la red neuronal.
+- La práctica permitió comprender la importancia de comparar distintos algoritmos en un mismo problema.
+"""
 
