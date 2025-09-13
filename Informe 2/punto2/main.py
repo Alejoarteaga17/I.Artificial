@@ -32,7 +32,8 @@ nn_model = Sequential([
     Dense(32, activation='relu'),
     Dense(1)  # salida de regresión
 ])
-
+#Acá está el adam default pero lo podemos modificar para usarlo con valores cercanos a la clase y que tenga saltos de aprendizaje mas grandes
+# y tengamos una mejor optimizacion como en clase
 nn_model.compile(optimizer='adam', loss='mse', metrics=['mae'])
 
 # Early stopping para detener el entrenamiento si no mejora con paciencia de 6 épocas
