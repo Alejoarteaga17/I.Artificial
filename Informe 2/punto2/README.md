@@ -1,6 +1,6 @@
 ## 1. Descripción del dataset
 
-- **Fuente:** Dataset `fetch_california_housing.csv` proporcionado por el curso.
+- **Fuente:** Dataset `fetch_california_housing.csv` DS usado de kaggle.
 - **Número de registros:** 20 640
 - **Número de variables:** 9 columnas
   - **Variables predictoras:**  
@@ -53,5 +53,6 @@
 - Como lo estaba mencionando anteriormente, este algorimo de RN tiene buenos resultados pero son menores a los otros dos que aplicamos, el los casos de ejecucion vemos buenos resultados pero analizamos que si aumentamos las epocas (con esta cantidad de datos) podemos obtener mejores resultados aun, además si ajustamos el optimizador a los valores usados en clase (0.01) vemos un mejor entrenamiento y una linea de ajuste mucho mas cercana a lo esperado, todo esto, teniendo peores resultados a los otros algoritmos ejecutados. 
 
 Asumo que si hacemos otros cambios en el algoritmo relacionados al optimizador (inlcuyendo cambio de tipo), cambio de epocas y las condiciones aplicadas a cada uno podriamos llegar a resultados incluso mas cercanos a lo esperados, pero a pesar de no ser el mejor, es un buen mecanismo de regresion
+
 
 
