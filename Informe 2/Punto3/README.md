@@ -11,7 +11,7 @@
     `MedHouseVal` — valor medio de las viviendas.
 - **Tipo de problema:** Regresión (predicción de un valor numérico continuo).
 
----
+----
 
 ## 2. Preprocesamiento realizado
 
@@ -29,7 +29,7 @@
 - Se usó `train_test_split` con 80% de los datos para entrenamiento y 20% para prueba.
 - Se fijó `random_state=42` para garantizar reproducibilidad.
 
----
+----
 
 ## 3. Modelo
 
@@ -39,7 +39,7 @@
   - Ponderación: Uniforme (todos los vecinos tienen el mismo peso).
   - Implementado con `KNeighborsRegressor` de scikit-learn.
 
----
+----
 
 ## 4. Evaluación de resultados
 
@@ -49,7 +49,7 @@
 
 *(valores aproximados, varían según el número de vecinos y preprocesamiento aplicado)*
 
----
+----
 
 ## 5. Análisis
 
@@ -59,7 +59,7 @@
   - Desventajas: Lento en datasets grandes, depende mucho de la escala de los datos y de la elección de *k*.  
   - En este dataset, el modelo mostró un desempeño correcto, pero inferior a modelos más avanzados que capturan mejor la relación no lineal entre variables.
 
----
+----
 
 ## 6. Conclusiones
 
